@@ -24,7 +24,7 @@ const typeDefs = gql`
 
     # Queries
     type Query {
-        users: [User!]!
+        users: [User]
         todos: [Todo]
     }
 
@@ -33,7 +33,11 @@ const typeDefs = gql`
 
     # Mutations
     type Mutation {
-        createUser(name: String!, age: Int!, married: Boolean!): User!
+        createUser(username: String!, password: String): User
+        createTodo(taskName: String! userId: Int!): Todo
+        editTodo(id: Int!, dueDate: Date, taskName: String!): Todo
+        completeTodo(id: Int!): Todo
+        deleteTodo(id: Int!): Todo
     }
 
 

@@ -6,14 +6,20 @@ const {resolvers} = require('./Schema/Resolvers')
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 
-
-const PORT = 4000
+const PORT = 3000
 
 const app = express()
 const prisma = new PrismaClient();
 
 
-const server = new ApolloServer({ typeDefs, resolvers })
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    csrPrevention: true,
+    cors: {
+        origin: ["http://127.0.0.1:4200", "http://127.0.0.1:3000", "http://localhost:3000", "http://localhost:4200"]
+    }
+})
 
 server.applyMiddleware({ app })
 
