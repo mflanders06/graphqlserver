@@ -27,7 +27,8 @@ const resolvers = {
                 data: {
                     dateCreated: new Date(),
                     taskName: args.taskName,
-                    userId: args.userId
+                    userId: args.userId,
+                    dueDate: args.dueDate
                 }    
             })
         },
